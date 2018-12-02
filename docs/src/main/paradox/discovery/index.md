@@ -400,7 +400,7 @@ instead.
 ### Discovery Method: AWS API - EC2 Tag-Based Discovery
 
 You can use tags to simply mark the instances that belong to the same cluster. Use a tag that
-has "service" as the key and set the value equal to the name of your service (same value as `akka.management.cluster.bootstrap.contact-point-discovery.service-name`
+has "service" as the key and set the value to the name of your service (same value as `akka.management.cluster.bootstrap.contact-point-discovery.service-name`
 defined in `application.conf`, if you're using this module for bootstrapping your Akka cluster).
 
 Screenshot of two tagged EC2 instances:
@@ -435,9 +435,9 @@ akka.discovery {
 
 Notes:
 
-* Since the implementation uses the Amazon EC2 API, you'll need to make sure that AWS credentials are provided.
-The simplest way to do this is to create an IAM role that includes permissions for Amazon EC2 API access.
-Attach this IAM role to the instances that make up the cluster. See the docs for
+* You will need to make sure that the proper privileges are in place for the discovery implementation to access
+the Amazon EC2 API. The simplest way to do this is by creating a IAM role that, at a minimum, allows the _DescribeInstances_ action.
+Attach this IAM role to the EC2 instances that need to access the discovery implementation. See the docs for
 [IAM Roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html).
 
 * In general, for the EC2 instances to "talk to each other" (necessary for forming a cluster), they need to be in the
