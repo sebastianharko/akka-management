@@ -488,10 +488,10 @@ setting `akka.discovery.aws-api-ec2-tag-based.tag-key` to something else.
 
     Scala
     :   ```scala  
-        package com.example  
-        import com.amazonaws.ClientConfiguration 
-        import com.amazonaws.retry.PredefinedRetryPolicies  
-        class MyConfiguration extends ClientConfiguration {  
+        package com.example <br /> 
+        import com.amazonaws.ClientConfiguration <br />
+        import com.amazonaws.retry.PredefinedRetryPolicies <br />  
+        class MyConfiguration extends ClientConfiguration { <br />  
           setProxyHost("...") // and/or other things you would like to set  
           setRetryPolicy(PredefinedRetryPolicies.NO_RETRY_POLICY)  
           // If you're using this module for bootstrapping your Akka cluster,  
