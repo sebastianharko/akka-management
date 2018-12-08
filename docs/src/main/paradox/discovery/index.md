@@ -487,9 +487,9 @@ setting `akka.discovery.aws-api-ec2-tag-based.tag-key` to something else.
 `com.amazonaws.ClientConfiguration`:
 
     Scala
-    :   ```scala
+    :   ```scala  
         package com.example  
-        import com.amazonaws.ClientConfiguration  
+        import com.amazonaws.ClientConfiguration 
         import com.amazonaws.retry.PredefinedRetryPolicies  
         class MyConfiguration extends ClientConfiguration {  
           setProxyHost("...") // and/or other things you would like to set  
