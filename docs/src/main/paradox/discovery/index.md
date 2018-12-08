@@ -488,32 +488,32 @@ setting `akka.discovery.aws-api-ec2-tag-based.tag-key` to something else.
 
     Scala
     :   ```scala
-        package com.example
-        import com.amazonaws.ClientConfiguration
-        import com.amazonaws.retry.PredefinedRetryPolicies
-        class MyConfiguration extends ClientConfiguration {
-          setProxyHost("...") // and/or other things you would like to set
-          setRetryPolicy(PredefinedRetryPolicies.NO_RETRY_POLICY)
-          // If you're using this module for bootstrapping your Akka cluster,
-          // Cluster Bootstrap already has its own retry/back-off mechanism. To avoid RequestLimitExceeded errors from AWS,
-          // disable retries in the EC2 client configuration.
-        }
+        package com.example  
+        import com.amazonaws.ClientConfiguration  
+        import com.amazonaws.retry.PredefinedRetryPolicies  
+        class MyConfiguration extends ClientConfiguration {  
+          setProxyHost("...") // and/or other things you would like to set  
+          setRetryPolicy(PredefinedRetryPolicies.NO_RETRY_POLICY)  
+          // If you're using this module for bootstrapping your Akka cluster,  
+          // Cluster Bootstrap already has its own retry/back-off mechanism. To avoid RequestLimitExceeded errors from AWS,  
+          // disable retries in the EC2 client configuration.  
+        }  
         ```
 
     Java
     :   ```java
-        package com.example;
-        import com.amazonaws.ClientConfiguration;
-        import com.amazonaws.retry.PredefinedRetryPolicies;
-        class MyConfiguration extends ClientConfiguration {
-          public MyConfiguration() {
-            setProxyHost(".."); // and/or other things you would like to set
-            setRetryPolicy(PredefinedRetryPolicies.NO_RETRY_POLICY);
-            // If you're using this module for bootstrapping your Akka cluster,
-            // Cluster Bootstrap already has its own retry/back-off mechanism. To avoid RequestLimitExceeded errors from AWS,
-            // disable retries in the EC2 client configuration.
-          }
-        }
+        package com.example;  
+        import com.amazonaws.ClientConfiguration;  
+        import com.amazonaws.retry.PredefinedRetryPolicies;  
+        class MyConfiguration extends ClientConfiguration {  
+          public MyConfiguration() {  
+            setProxyHost(".."); // and/or other things you would like to set  
+            setRetryPolicy(PredefinedRetryPolicies.NO_RETRY_POLICY);  
+            // If you're using this module for bootstrapping your Akka cluster,  
+            // Cluster Bootstrap already has its own retry/back-off mechanism. To avoid RequestLimitExceeded errors from AWS,  
+            // disable retries in the EC2 client configuration.  
+          }  
+        }  
         ```
 
     And in `application.conf`:
